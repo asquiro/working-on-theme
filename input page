@@ -1,0 +1,100 @@
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
+
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
+import 'resuable_card.dart';
+
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bgactiveColor = Color(0xFFEB1555);
+
+class InputPage extends StatelessWidget {
+  const InputPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+          child: Text('BMI Calculator'),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: <Widget>[
+                Expanded(
+                  child: ResuableCard(
+                    colour: activeCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ResuableCard(
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
+                    colour: activeCardColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                ResuableCard(
+                  cardChild: IconContent(
+                    icon: FontAwesomeIcons.addressCard,
+                    label: 'Check',
+                  ),
+                  colour: activeCardColor,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: ResuableCard(
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.anchorLock,
+                      label: 'Fox',
+                    ),
+                    colour: activeCardColor,
+                  ),
+                ),
+                Expanded(
+                  child: ResuableCard(
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.magnet,
+                      label: 'Makeup',
+                    ),
+                    colour: activeCardColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10.0),
+            color: bgactiveColor,
+            width: double.infinity,
+            height: bottomContainerHeight,
+          ),
+        ],
+      ),
+    );
+  }
+}
